@@ -1,15 +1,19 @@
 {% extends "learning_logs/base.html" %}
-
+{% block header %}
+  <h2>{{ topic }}</h2>
+{% endblock %}
 {% block content %}
-<p>主题: {{ topic }}</p>
-
+<p>
+  <a href="{% url 'learning_logs:new_entry' topic.id %}">添加项目</a>
+</p>
+{% for entry in entries %}
 <p>条目:</p>
     <p>
         <a href="{% url 'learning_logs:new_entry' topic.id %}">添加新条目</a>
     </p>
 
     <ul>
-    {% for entry in entries %}
+
         <li>
             <p>{{ entry.date_added|date:'Y年m月d日 - H:i' }}</p>
             <p>{{ entry.text|linebreaks }}</p>
@@ -19,7 +23,6 @@
         </li>
         {% empty %}
         <li>There are no entries for this topic yet.</li>
-    {% endfor %}
-    </ul>
+{% endfor %}
 
 {% endblock content %}
