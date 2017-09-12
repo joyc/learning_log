@@ -142,7 +142,7 @@ if os.getcwd() == '/app':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     # 支持主机头
-    ALLOWED_HOSTS = ['learning-note.herokuapp.com']
+    ALLOWED_HOSTS = ['whispering-waters-32310.herokuapp.com']
     DEBUG = False
 
     # 静态配置
